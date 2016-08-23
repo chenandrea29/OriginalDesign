@@ -16,13 +16,12 @@ void setup() {
 void draw() {
 	pickVertex();
 	stroke(0, 153, 153);
-	
 	drawPoint();
 }
 
 void pickVertex() {
 	vertex = random(1, 4);
-	println("vertex: "+vertex);
+	println("vertex: "+ vertex);
 	if (vertex >= 1 && vertex < 2) {
 		vertexX = 200;
 		vertexY = 50;
@@ -41,6 +40,7 @@ void drawPoint() {
 	midpointX = (vertexX + randomPointX)/2;
 	midpointY = (vertexY + randomPointY)/2;
 	point(midpointX, midpointY);
+	line(randomPointX, randomPointY, midpointX, midpointY);
 	randomPointX = midpointX;
 	randomPointX = midpointY;
 }
