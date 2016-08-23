@@ -1,47 +1,43 @@
-float vertex;
+int vertex;
 int vertexX;
 int vertexY;
-float randomPointX = random(0, 250);
-float randomPointY = random(0, 250);
-float midpointX;
-float midpointY;
+int otherPointX = int(random(0, 500));
+int otherPointY = int(random(0, 500));
+int midpointX;
+int midpointY;
 
 void setup() {
-  	size(250, 250);
+  	size(500, 500);
   	background(0);
   	fill(255);
-  	triangle(200, 50, 200, 200, 50, 200);
+  	triangle(450, 50, 450, 450, 50, 450);
 }
 
 void draw() {
 	pickVertex();
-	stroke(0, 153, 153);
 	drawPoint();
 }
 
 void pickVertex() {
-	vertex = random(1, 4);
-	println("vertex: "+ vertex);
-	if (vertex >= 1 && vertex < 2) {
-		vertexX = 200;
+	vertex = int(random(1, 4));
+	if (vertex == 1) {
+		vertexX = 450;
 		vertexY = 50;
-	} else if (vertex >= 2 && vertex < 3) {
-		vertexX = 200;
-		vertexY = 200;
+	} else if (vertex == 2) {
+		vertexX = 450;
+		vertexY = 450;
 	} else {
 		vertexX = 50;
-		vertexY = 200;
+		vertexY = 450;
 	}
 
 }
 
 void drawPoint() {
-	point(randomPointX, randomPointY);
-	midpointX = (vertexX + randomPointX)/2;
-	midpointY = (vertexY + randomPointY)/2;
+	point(otherPointX, otherPointY);
+	midpointX = int((vertexX + otherPointX)/2);
+	midpointY = int((vertexY + otherPointY)/2);
 	point(midpointX, midpointY);
-	line(randomPointX, randomPointY, midpointX, midpointY);
-	randomPointX = midpointX;
-	randomPointX = midpointY;
+	otherPointX = midpointX;
+	otherPointY = midpointY;
 }
-
