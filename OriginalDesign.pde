@@ -14,6 +14,7 @@ int y3 = (int)(Math.random()*201);
 
 void setup() {
   	size(500, 500);
+  	frameRate(200);
   	background(0);
   	fill(255);
   	triangle(x1, y1, x2, y2, x3, y3);
